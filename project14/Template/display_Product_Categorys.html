@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>display_Product_Categorys</h1>
+        <table border="3px">
+            <tr>
+                <th>PC_id</th>
+                <th>PC_type</th>
+            </tr>
+
+            {% for pco in Product_Categorys %}
+                <tr>
+                    <td>{{pco.PC_id}}</td>
+                    <td>{{pco.PC_type}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </center>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>display_Products</h1>
+        <table border="3px">
+            <tr>
+                <th>pk/PC_id</th>
+                <th>P_id</th>
+                <th>P_name</th>
+                <th>Price</th>
+                <th>MF_date</th>
+                <th>MF_place</th>
+                
+
+            </tr>
+
+            {% for po in Products %}
+                <tr>
+                    <td>{{po.pk}}</td>
+                    <td>{{po.P_id}}</td>
+                    <td>{{po.P_name}}</td>
+                    <td>{{po.Price}}</td>
+                    <td>{{po.MF_date}}</td>
+                    <td>{{po.MF_place}}</td>
+                    
+                </tr>
+            {% endfor %}
+        </table>
+
+    </center>
+</body>
+</html>
