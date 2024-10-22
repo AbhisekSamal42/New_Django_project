@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>
+            EmpMgrDept Data
+        </h1>
+        <table border="3px">
+            <tr>
+                <th>ENAME</th>
+                <th>ManagerName</th>
+                <th>DepartName</th>
+            </tr>
+            {% for emdo in LEMDO %}
+                <tr>
+                    <td>{{emdo.ENAME}}</td>
+                    <td>{{emdo.MGR.ENAME}}</td>
+                    <td>{{emdo.DEPTNO.DNAME}}</td>
+                </tr>
+            {% endfor %}
+
+
+
+
+
+
+
+        </table>
+
+
+
+
+
+
+
+    </center>
+</body>
+</html>
