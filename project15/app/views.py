@@ -71,3 +71,17 @@ def select_Multiaccess(request):
         D2={'EQSW':EQSW}
         return render(request,'display_Accessrecord.html',D2)
     return render(request,'select_Multiaccess.html',D)
+
+
+def Checkbox(request):
+    LTO=Topic.objects.all()
+    D={'LTO':LTO}
+
+    
+    return render(request,'Checkbox.html',D)
+
+def Checkbox2(request):
+    LWO=Webpage.objects.all()
+    D={'LWO':LWO}
+
+    return render(request,'Checkbox2.html',D)
