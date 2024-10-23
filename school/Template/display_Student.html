@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <h1>display_Student</h1>
+    <table border="3px">
+        <tr>
+            <th>pk</th>
+            <th>school_name</th>
+            <th>name</th>
+            <th>Rollno</th>
+            <th>phno</th>
+            <th>email</th>
+        </tr>
+    {% for stuo in EQSS %}
+        <tr>
+            <td>{{stuo.pk}}</td>
+            <td>{{stuo.school_name}}</td>
+            <td>{{stuo.name}}</td>
+            <td>{{stuo.rollno}}</td>
+            <td>{{stuo.phno}}</td>
+            <td>{{stuo.email}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+</center>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+
+        <h1>insertStudent</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="sn">SchoolName</label>
+            <!-- <input type="text" name="sn" id="sn"> <br>
+            <br> -->
+            <select name="sn" id="sn">
+                {% for so in LSO %}
+                    <option value="{{so.school_name}}">{{so.school_name}}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label for="nm">Name</label>
+            <input type="text" name="nm" id="nm"><br>
+            <br>
+            
+            <label for="rn">Rollno</label>
+            <input type="text" name="rn" id="rn"><br>
+            <br>
+            
+            <label for="pn">Phoneno</label>
+            <input type="text" name="pn" id="pn"><br>
+            <br>
+
+            <label for="em">Email</label>
+            <input type="text" name="em" id="em"><br>
+            <br>
+
+            <input type="submit" value="insertStudent">
+
+        </form>
+    </center>
+</body>
+</html>
