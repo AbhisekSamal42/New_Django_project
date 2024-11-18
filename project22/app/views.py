@@ -95,6 +95,6 @@ def reset_password(request):
             UO.save()
             return HttpResponse('Password is Changed successfilly')
         else:
-            return HttpResponse('User is not present')
+            return HttpResponse('User is not present in the database')
 
     return render(request,'reset_password.html')
