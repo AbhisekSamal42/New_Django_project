@@ -1,22 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <center>
-        <h1>{{object.scname}}</h1>
-        <h1>{{object.scprincipal}}</h1>
-        <h1>{{object.sclocation}}</h1>
+{% extends 'app/dummy.html' %}
 
-        {% for stu in object.students.all%}
-        {{stu.stname}}
-        {{stu.stage}}
-        {{stu.scname}}<br>
+
+{% block title %}
+    <title>Sc Detail Page</title>
+{% endblock %}
+
+{% block body_block %}
+    <center>
+        <h1>Detail Information of {{scobject.scname}} </h1>
+
+        <h2>Name of School is {{scobject.scname}}</h2>
+        
+        <h2>principal of School is {{scobject.scprincipal}}</h2>
+        
+        <h2>location of School is {{scobject.sclocation}}</h2>
+
+
+        <h1>Student Details are</h1>
+
+        {% for sto in scobject.students.all %}
+            <h2>name of student is {{sto.stname}}</h2>
+            <h2>age of student is {{sto.stage}}</h2>
+            
         {% endfor %}
 
-    </center>
-</body>
-</html>
+
+
+<a href="{% url 'SchoolUpdate' pk=scobject.pk %}" class="btn btn-danger">Update School</a>
+
+
+<a href="{% url 'SchoolDelete' pk=scobject.pk %}" class="btn btn-danger">Delete School</a>
+
+
+</center>
+{% endblock %}
