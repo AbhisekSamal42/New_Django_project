@@ -11,8 +11,8 @@ urlpatterns = [
     path('studentDetailView/<int:pk>/',studentDetailView,name='studentDetailView'),
 
    #class based urls
-    # path('EmployeesView/',EmployeesView.as_view(),name='EmployeesView') ,
-    # path('EmployeeDetailView/<int:pk>/',EmployeeDetailView.as_view(),name='EmployeeDetailView'),
+    path('EmployeesView/',EmployeesView.as_view(),name='EmployeesView') ,
+    path('EmployeeDetailView/<int:pk>/',EmployeeDetailView.as_view(),name='EmployeeDetailView'),
 
    #Viewsets
    path('',include(router.urls)),

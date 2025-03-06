@@ -11,6 +11,9 @@ from django.http import Http404
 from rest_framework import mixins,generics,viewsets
 from blogs.models import *
 from blogs.serializers import *
+from api.pagination import *
+from emp.filters import *
+from rest_framework.filters import SearchFilter,OrderingFilter
 #Function Based View
 
 @api_view(['GET', 'POST'])
@@ -126,7 +129,7 @@ class EmployeeDetailView(mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixin
 
 # Generics Based View
 
-'''class EmployeesView(generics.ListCreateAPIView):
+class EmployeesView(generics.ListCreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
@@ -134,7 +137,7 @@ class EmployeeDetailView(mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixin
 class EmployeeDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    lookup_field = 'pk'''
+    lookup_field = 'pk'
     
 
 
@@ -180,6 +183,8 @@ class EmployeeDetailView(generics.RetrieveUpdateDestroyAPIView):
 class EmployeeViewset(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+    pagination_class = CustomPagination   # Custom Pagination
+    filterset_class = EmployeeFilter     # Custom filter
 
 
 # Neasted Serializers view
@@ -187,6 +192,9 @@ class EmployeeViewset(viewsets.ModelViewSet):
 class BlogsView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
+    filter_backends = [SearchFilter,OrderingFilter]
+    search_fields = ['blog_title','blog_body']
+    ordering_fields = ['id','blog_title']
 
 class CommentsView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
